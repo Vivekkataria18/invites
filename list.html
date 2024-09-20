@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Card Grid</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(270deg, #f4f4f9, #94cfff, #f4f4f9, #bbe0ff);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            min-height: 150px; /* Set minimum height */
+            min-width: 100px; /* Set minimum width */
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-header {
+            background-color: #4285f4;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .card-body {
+            padding: 15px;
+            text-align: center;
+            flex-grow: 1; /* This allows the body to expand */
+        }
+
+        .card-footer {
+            background-color: #f1f1f1;
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* Media Query for mobile screens */
+        @media (max-width: 600px) {
+            body {
+                justify-content: flex-start;
+            }
+            .card {
+                width: calc(50% - 10px); /* Two cards in a row */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Card 1 -->
+    <div class="card">
+        <div class="card-body">                
+            <img src="sarthak.jpg" style="width: 100%; max-height: 240px;">
+        </div>
+        <div class="card-footer">Sarthak</div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card">
+        <div class="card-body">                
+            <img src="vishesh.jpg" style="width: 100%; max-height: 240px;">
+        </div>
+        <div class="card-footer">Vishesh</div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card">
+        <div class="card-body">                
+            <img src="anuroop.jpg" style="width: 100%; max-height: 240px;">
+        </div>
+        <div class="card-footer">Anuroop</div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="card">
+        <div class="card-body">                
+            <img src="yatharth.jpg" style="width: 100%; max-height: 240px;">
+        </div>
+        <div class="card-footer">Yatharth</div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="card">
+        <div class="card-body">                
+            <img src="pratham.jpg" style="width: 100%; max-height: 240px;">
+        </div>
+        <div class="card-footer">Pratham</div>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="card">
+        <div class="card-body">                
+            <img src="abhisheskh.jpg" style="width: 100%; max-height: 240px;">
+        </div>
+        <div class="card-footer">Abhishek</div>
+    </div>
+
+    <!-- Additional Cards -->
+    <div class="card">
+        <div class="card-body">                
+            <img src="kishley.jpg" style="width: 100%; max-height: 240px;">
+        </div>
+        <div class="card-footer">Kishley</div>
+    </div>
+    <div class="card">
+        <div class="card-body">                
+            <img src="shailen.jpg" style="width: 100%; max-height: 240px;">
+        </div>
+        <div class="card-footer">Shailen</div>
+    </div>
+    <div class="card">
+        <div class="card-body">                
+            <img src="sarveksh.jpg" style="width: 100%; max-height: 240px;">
+        </div>
+        <div class="card-footer">Sarveksh</div>
+    </div>
+    <div class="card">
+        <div class="card-body">                
+            <img src="ritik.jpg" style="width: 100%; max-height: 240px;">
+        </div>
+        <div class="card-footer">Ritik</div>
+    </div>
+    <div class="card">
+        <div class="card-body">                
+            <img src="ashish.jpg" style="width: 100%; max-height: 240px;">
+        </div>
+        <div class="card-footer">Ashish</div>
+    </div>
+    <div class="card">
+        <div class="card-body">                
+            <img src="shashank.jpg" style="width: 100%; max-height: 240px;">
+        </div>
+        <div class="card-footer">Shashank</div>
+    </div>
+    <div class="card">
+        <div class="card-body">                
+            <img src="prakul.jpg" style="width: 100%; max-height: 240px;">
+        </div>
+        <div class="card-footer">Prakul</div>
+    </div>
+    <div class="card">
+        <div class="card-body">                
+            <img src="kanav.jpg" style="width: 100%; max-height: 240px;">
+        </div>
+        <div class="card-footer">Kanav</div>
+    </div>
+
+</body>
+</html>

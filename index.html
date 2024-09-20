@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Birthday Card with Enhanced Confetti Animation</title>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f4f4f9;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        /* Card Container */
+        .card-container {
+            perspective: 1000px;
+        }
+
+        /* Card */
+        .card {
+            width: 350px;
+            height: 500px;
+            transform-style: preserve-3d;
+            transition: transform 0.8s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transform-origin: center;
+            cursor: pointer; /* Change cursor to pointer */
+        }
+
+        /* Card Front & Back */
+        .card .front,
+        .card .back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+        }
+
+        .card .front {
+            background-image: url("https://via.placeholder.com/250x600");
+            background-size: cover;
+        }
+
+        .card .back {
+            background-color: #ff6f61;
+            transform: rotateY(180deg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+            border-radius: 15px;
+            position: relative; /* Create a positioning context for absolute positioning */
+        }
+
+        .back img {
+            width: 100%;
+        }
+
+        /* Button Styling */
+        .btn {
+            position: absolute; /* Position the button absolutely */
+            top: 50%; /* Center vertically */
+            left: 50%; /* Center horizontally */
+            transform: translate(-50%, -50%); /* Adjust position to truly center */
+            padding: 10px 20px;
+            background-color: #287aff; /* Google blue color */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #357ae8; /* Darker blue on hover */
+        }
+
+        /* Confetti Animation */
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 20px;
+            background-color: red;
+            animation: fall linear infinite;
+            transform-origin: left;
+            border-radius: 5%;
+        }
+
+        /* Varied Sizes and Shapes */
+        .confetti.round {
+            border-radius: 50%;
+        }
+
+        .confetti.triangle {
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 20px solid red;
+        }
+
+        /* Falling Animation */
+        @keyframes fall {
+            0% {
+                top: -10%;
+                left: calc(100% * var(--x));
+                opacity: 1;
+            }
+            100% {
+                top: 110%;
+                left: calc(100% * var(--y));
+                opacity: 0;
+            }
+        }
+
+        /* Zig-zagging Animation */
+        @keyframes zigzag {
+            0% {
+                top: -10%;
+                left: calc(100% * var(--x));
+                opacity: 1;
+            }
+            25% {
+                left: calc(100% * (var(--x) + 0.1));
+            }
+            50% {
+                left: calc(100% * (var(--x) - 0.1));
+            }
+            75% {
+                left: calc(100% * (var(--x) + 0.05));
+            }
+            100% {
+                top: 110%;
+                left: calc(100% * var(--y));
+                opacity: 0;
+            }
+        }
+
+        /* Falling speeds */
+        .slow {
+            animation-duration: 6s;
+        }
+
+        .fast {
+            animation-duration: 3s;
+        }
+
+        .medium {
+            animation-duration: 4.5s;
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <div class="card" id="birthdayCard">
+            <!-- Front Side of Card -->
+            <div class="front">
+                <img src="invite.png" style="width: 100%;">
+            </div>
+            <!-- Back Side of Card -->
+            <div class="back" style="background: transparent; position: relative;">
+                <img src="invite.png" style="width: 100%; border-radius: 1rem; filter: blur(2px);">
+                <a href="list.html" class="btn">Guest List</a>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Confetti Animation -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const confettiCount = 150;
+            const colors = ["#4285F4", "#EA4335", "#FBBC05", "#34A853"]; // Google colors
+
+            for (let i = 0; i < confettiCount; i++) {
+                const confetti = document.createElement("div");
+
+                // Add classes for random size, shape, and motion
+                confetti.className =
+                    "confetti " +
+                    (Math.random() > 0.7 ? "round" : "") +
+                    (Math.random() > 0.8 ? "triangle" : "") +
+                    (Math.random() > 0.5
+                        ? "slow"
+                        : Math.random() > 0.5
+                        ? "fast"
+                        : "medium");
+
+                // Assign random color
+                confetti.style.backgroundColor =
+                    colors[Math.floor(Math.random() * colors.length)];
+
+                // Random positions
+                confetti.style.setProperty("--x", Math.random());
+                confetti.style.setProperty("--y", Math.random());
+
+                // Randomly choose the animation
+                const animationType = Math.random() > 0.5 ? "fall" : "zigzag";
+                confetti.style.animation = `${animationType} ${
+                    Math.random() * 3 + 3
+                }s linear infinite`; // Duration between 3s and 6s
+
+                // Append to body
+                document.body.appendChild(confetti);
+            }
+
+            // Rotate card on click
+            const card = document.getElementById("birthdayCard");
+            card.addEventListener("click", function () {
+                const isFlipped = card.style.transform === "rotateY(180deg)";
+                card.style.transform = isFlipped
+                    ? "rotateY(0deg)"
+                    : "rotateY(180deg)";
+            });
+        });
+    </script>
+</body>
+</html>
