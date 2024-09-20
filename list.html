@@ -9,7 +9,7 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            background: linear-gradient(270deg, #f4f4f9, #94cfff, #f4f4f9, #bbe0ff);
+            background: linear-gradient(270deg, #f59700cb, #acacac, #ffb700, #444444);
             background-size: 400% 400%;
             animation: gradientAnimation 15s ease infinite;
             display: flex;
@@ -31,11 +31,18 @@
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             width: 200px;
-            min-height: 150px; /* Set minimum height */
-            min-width: 100px; /* Set minimum width */
+            min-height: 150px;
+            min-width: 100px;
             overflow: hidden;
             display: flex;
             flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+        }
+
+        /* Hover effect */
+        .card:hover {
+            transform: scale(1.5); /* Enlarges the card */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Adds a stronger shadow */
         }
 
         .card-header {
@@ -49,7 +56,7 @@
         .card-body {
             padding: 15px;
             text-align: center;
-            flex-grow: 1; /* This allows the body to expand */
+            flex-grow: 1;
         }
 
         .card-footer {
@@ -64,7 +71,7 @@
                 justify-content: flex-start;
             }
             .card {
-                width: calc(50% - 10px); /* Two cards in a row */
+                width: calc(50% - 10px);
             }
         }
     </style>
@@ -118,10 +125,11 @@
         </div>
         <div class="card-footer">Abhishek</div>
     </div>
-        <!-- Card 7 -->
+
+    <!-- Card 7 -->
     <div class="card">
         <div class="card-body">                
-            <img src="ansh.jpg" style="width: 100%;">
+            <img src="anshh.jpg" style="width: 100%;">
         </div>
         <div class="card-footer">Ansh</div>
     </div>
@@ -136,7 +144,7 @@
 
     <!-- Card 9 -->
     <div class="card">
-        <div class="card-body">                
+        <div class="card-body" style=" min-height: 8.3rem;">                
             <img src="tanuj.jpg" style="width: 100%;">
         </div>
         <div class="card-footer">Tanuj</div>
@@ -144,56 +152,69 @@
 
     <!-- Card 10 -->
     <div class="card">
-        <div class="card-body">                
-            <img src="rawat.jpg" style="width: 100%;">
+        <div class="card-body" style="min-height: 9.5rem;">                
+            <img src="rawat.jpg" style="width: 100%; ">
         </div>
         <div class="card-footer">Aditya</div>
     </div>
 
-
-    <!-- Additional Cards -->
+    <!-- Card 11 -->
     <div class="card">
         <div class="card-body">                
             <img src="kishley.jpg" style="width: 100%; max-height: 240px;">
         </div>
         <div class="card-footer">Kishley</div>
     </div>
+
+    <!-- Card 12 -->
     <div class="card">
         <div class="card-body">                
             <img src="shailen.jpg" style="width: 100%; max-height: 240px;">
         </div>
         <div class="card-footer">Shailen</div>
     </div>
+
+    <!-- Card 13 -->
     <div class="card">
         <div class="card-body">                
             <img src="sarveksh.jpg" style="width: 100%; max-height: 240px;">
         </div>
         <div class="card-footer">Sarveksh</div>
     </div>
+
+    <!-- Card 14 -->
     <div class="card">
         <div class="card-body">                
             <img src="ritik.jpg" style="width: 100%; max-height: 240px;">
         </div>
         <div class="card-footer">Ritik</div>
     </div>
+
+    <!-- Card 15 -->
     <div class="card">
         <div class="card-body">                
             <img src="ashish.jpg" style="width: 100%; max-height: 240px;">
         </div>
         <div class="card-footer">Ashish</div>
     </div>
+
+    <!-- Card 16 -->
     <div class="card">
         <div class="card-body">                
             <img src="shashank.jpg" style="width: 100%; max-height: 240px;">
         </div>
         <div class="card-footer">Shashank</div>
     </div>
+
+    <!-- Card 17 -->
     <div class="card">
         <div class="card-body">                
             <img src="prakul.jpg" style="width: 100%; max-height: 240px;">
         </div>
         <div class="card-footer">Prakul</div>
     </div>
+
+    <!-- Card 18 -->
     <div class="card">
         <div class="card-body">                
             <img src="kanav.jpg" style="width: 100%; max-height: 240px;">
